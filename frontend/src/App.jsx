@@ -1,11 +1,9 @@
-import "./App.css";
-
 function App() {
   return (
     /* App Main Bit */
-    <div id="app">
+    <div className="flex min-h-screen">
       {/* LEFT PANEL: CONTROLS */}
-      <aside id="controls">
+      <aside className="w-80">
 
         {/* Mode Toggle */}
         <section className="control-group">
@@ -85,7 +83,7 @@ function App() {
       </aside>
 
       {/* RIGHT PANEL: OUTPUT */}
-      <main id="visualizer">
+      <main className="flex-1">
 
         {/* Header */}
         <header id="output-header">
