@@ -2,7 +2,6 @@ import "./App.css";
 
 function App() {
   return (
-    /* App Main Bit */
     <div id="app">
       {/* LEFT PANEL: CONTROLS */}
       <aside id="controls">
