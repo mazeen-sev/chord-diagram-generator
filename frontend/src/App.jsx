@@ -15,13 +15,24 @@ function App() {
           <h3 className="text-sm font-semibold text-zinc-300">Mode</h3>
           <div className="flex gap-2">
             <button 
-              onClick={() => setMode("chord")}
-              className="flex-1 px-3 py-1 rounded bg-zinc-700 hover:bg-zinc-600"
-              
+              onClick={() => setMode("Chord")}
+              className={`flex-1 px-3 py-1 rounded ${
+                mode === "Chord"
+                ? "bg-blue-600"
+                : "bg-zinc-700 hover:bg-zinc-600"
+              }`}              
             >
               Chord
             </button>
-            <button className="flex-1 px-3 py-1 rounded bg-zinc-700 hover:bg-zinc-600">
+            <button
+              onClick={() => setMode("Notes")} 
+              className={`flex-1 px-3 py-1 rounded ${
+              mode === "Notes"
+              ? "bg-blue-600"
+              : "bg-zinc-700 hover:bg-zinc-600"
+              }`}
+              >
+                
               Notes
             </button>
           </div>
