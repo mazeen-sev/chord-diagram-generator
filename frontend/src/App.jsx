@@ -1,4 +1,9 @@
+import { useState } from "react";
+
 function App() {
+
+  const [mode, setMode] = useState("chord")
+
   return (
     <div className="flex min-h-screen bg-zinc-900 text-white">
       
@@ -9,8 +14,16 @@ function App() {
         <section className="space-y-2">
           <h3 className="text-sm font-semibold text-zinc-300">Mode</h3>
           <div className="flex gap-2">
-            <button className="flex-1 px-3 py-1 rounded bg-zinc-700 hover:bg-zinc-600">Chord</button>
-            <button className="flex-1 px-3 py-1 rounded bg-zinc-700 hover:bg-zinc-600">Notes</button>
+            <button 
+              onClick={() => setMode("chord")}
+              className="flex-1 px-3 py-1 rounded bg-zinc-700 hover:bg-zinc-600"
+              
+            >
+              Chord
+            </button>
+            <button className="flex-1 px-3 py-1 rounded bg-zinc-700 hover:bg-zinc-600">
+              Notes
+            </button>
           </div>
         </section>
 
