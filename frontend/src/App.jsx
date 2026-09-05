@@ -2,7 +2,7 @@ import { useState } from "react";
 
 function App() {
 
-  const [mode, setMode] = useState("chord")
+  const [mode, setMode] = useState("Chord")
 
   return (
     <div className="flex min-h-screen bg-zinc-900 text-white">
