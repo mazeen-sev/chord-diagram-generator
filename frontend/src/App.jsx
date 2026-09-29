@@ -64,6 +64,25 @@ function App() {
             <option value="aug">aug</option>
           </select>
         </section>
+        
+        {/* Manual Notes*/}
+        { mode === "Notes" && (
+                  <section className="space-y-2">
+          <h3 className="text-sm font-semibold text-zinc-300">Manual Notes</h3>
+          <div className="grid grid-cols-6 gap-2">
+            {["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"].map((note, i) => (
+              <button
+                key={i}
+                className="px-2 py-1 rounded bg-zinc-700 hover:bg-zinc-600 text-sm"
+              >
+                {note}
+              </button>
+            ))}
+          </div>
+        </section>
+
+        )
+        }
 
         {/* Manual Notes */}
         <section className="space-y-2">
