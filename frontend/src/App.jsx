@@ -4,6 +4,7 @@ function App() {
 
   const [mode, setMode] = useState("Chord")
   const [fretRange, setFretRange] = useState(15)
+  const [selectedChordType, setSelectedChordType] = useState("maj7")
   return (
     <div className="flex min-h-screen bg-zinc-900 text-white">
       
@@ -32,9 +33,21 @@ function App() {
               : "bg-zinc-700 hover:bg-zinc-600"
               }`}
               >
-                
               Notes
             </button>
+            
+            <button
+              onClick={() => setMode("Scale")}
+              className={`flex-1 px-3 py-1 rounded ${
+                mode === "Scale" 
+                ? "bg-blue-600"
+                : "bg-zinc-700 hover:bg-zinc-600"
+              }
+              `}
+            >
+              Scale
+            </button>
+
           </div>
         </section>
 
@@ -58,15 +71,34 @@ function App() {
           <section className="space-y-2">
             <h3 className="text-sm font-semibold text-zinc-300">Chord Type</h3>
             <select className="w-full px-2 py-1 rounded bg-zinc-700 text-white">
-              <option value="maj7">maj7</option>
-              <option value="min7">min7</option>
-              <option value="7">7 (dominant)</option>
-              <option value="dim">dim</option>
-              <option value="aug">half-dim</option>
+              <optgroup label="── Triads ──">
+                <option value="maj">Major (maj)</option>
+                <option value="min">Minor (min)</option>
+                <option value="dim">Diminished (dim)</option>
+                <option value="aug">Augmented (aug)</option>
+                <option value="sus2">Suspended 2 (sus2)</option>
+                <option value="sus2">Suspended 4 (sus4)</option>
+              </optgroup>
+              <optgroup label="── 7th Chords ──">
+                <option value="maj7">Major 7th (maj7)</option>  
+                <option value="min7">Minor 7th (min7)</option>
+                <option value="dom7">Dominant 7th (7)</option>
+                <option value="dim7">Diminished 7th (dim)</option>
+                <option value="maj7">Minor Major 7th (minM7)</option>  
+                <option value="min7b5">Half-Diminished (min7b5)</option>
+                <option value="aug7">Augmented 7th (aug7)</option>
+              </optgroup>
             </select>
           </section>
         ) }
 
+        { mode === "Scale" && (
+          <section className="space-y-2" >
+            
+            
+          </section>
+        )
+        }
         
         {/* Manual Notes*/}
         { mode === "Notes" && (
