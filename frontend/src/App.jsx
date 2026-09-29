@@ -3,7 +3,7 @@ import { useState } from "react";
 function App() {
 
   const [mode, setMode] = useState("Chord")
-
+  const [fretRange, setFretRange] = useState(15)
   return (
     <div className="flex min-h-screen bg-zinc-900 text-white">
       
@@ -54,16 +54,19 @@ function App() {
         </section>
 
         {/* Chord Type */}
-        <section className="space-y-2">
-          <h3 className="text-sm font-semibold text-zinc-300">Chord Type</h3>
-          <select className="w-full px-2 py-1 rounded bg-zinc-700 text-white">
-            <option value="maj7">maj7</option>
-            <option value="min7">min7</option>
-            <option value="7">7 (dominant)</option>
-            <option value="dim">dim</option>
-            <option value="aug">aug</option>
-          </select>
-        </section>
+        { mode === "Chord" && (
+          <section className="space-y-2">
+            <h3 className="text-sm font-semibold text-zinc-300">Chord Type</h3>
+            <select className="w-full px-2 py-1 rounded bg-zinc-700 text-white">
+              <option value="maj7">maj7</option>
+              <option value="min7">min7</option>
+              <option value="7">7 (dominant)</option>
+              <option value="dim">dim</option>
+              <option value="aug">half-dim</option>
+            </select>
+          </section>
+        ) }
+
         
         {/* Manual Notes*/}
         { mode === "Notes" && (
@@ -83,22 +86,6 @@ function App() {
 
         )
         }
-
-        {/* Manual Notes */}
-        <section className="space-y-2">
-          <h3 className="text-sm font-semibold text-zinc-300">Manual Notes</h3>
-          <div className="grid grid-cols-6 gap-2">
-            {["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"].map((note, i) => (
-              <button
-                key={i}
-                className="px-2 py-1 rounded bg-zinc-700 hover:bg-zinc-600 text-sm"
-              >
-                {note}
-              </button>
-            ))}
-          </div>
-        </section>
-
         {/* Tuning */}
         <section className="space-y-2">
           <h3 className="text-sm font-semibold text-zinc-300">Tuning</h3>
@@ -111,8 +98,16 @@ function App() {
         {/* Fret Range */}
         <section className="space-y-2">
           <h3 className="text-sm font-semibold text-zinc-300">Fret Range</h3>
-          <input type="range" min="5" max="24" defaultValue="15" className="w-full" />
-          <span className="text-sm text-zinc-400">15</span>
+          <input 
+            type="range" 
+            value={fretRange}
+            min="5" 
+            max="24" 
+            onChange={(e) => setFretRange(Number(e.target.value))}
+            defaultValue="15" 
+            className="w-full" 
+          />
+          <span className="text-sm text-zinc-400">{fretRange}</span>
         </section>
 
         {/* Display Options */}
