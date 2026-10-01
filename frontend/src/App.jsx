@@ -25,17 +25,7 @@ function App() {
             >
               Chord
             </button>
-            <button
-              onClick={() => setMode("Notes")} 
-              className={`flex-1 px-3 py-1 rounded ${
-              mode === "Notes"
-              ? "bg-blue-600"
-              : "bg-zinc-700 hover:bg-zinc-600"
-              }`}
-              >
-              Notes
-            </button>
-            
+
             <button
               onClick={() => setMode("Scale")}
               className={`flex-1 px-3 py-1 rounded ${
@@ -47,6 +37,17 @@ function App() {
             >
               Scale
             </button>
+            <button
+              onClick={() => setMode("Notes")} 
+              className={`flex-1 px-3 py-1 rounded ${
+              mode === "Notes"
+              ? "bg-blue-600"
+              : "bg-zinc-700 hover:bg-zinc-600"
+              }`}
+              >
+              Notes
+            </button>
+            
 
           </div>
         </section>
